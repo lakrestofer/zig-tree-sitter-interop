@@ -1,11 +1,391 @@
 [
   {
-    "type": "source_file",
+    "type": "boolean",
     "named": true,
     "fields": {}
   },
   {
-    "type": "hello",
+    "type": "constituent",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "letter",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "initial",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "constituent",
+          "named": true
+        },
+        {
+          "type": "special_initial",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "boolean",
+          "named": true
+        },
+        {
+          "type": "close_curly_paren",
+          "named": true
+        },
+        {
+          "type": "close_paren",
+          "named": true
+        },
+        {
+          "type": "close_square_paren",
+          "named": true
+        },
+        {
+          "type": "open_byte_vec_paren",
+          "named": true
+        },
+        {
+          "type": "open_curly_paren",
+          "named": true
+        },
+        {
+          "type": "open_paren",
+          "named": true
+        },
+        {
+          "type": "open_square_paren",
+          "named": true
+        },
+        {
+          "type": "open_vec_paren",
+          "named": true
+        },
+        {
+          "type": "period",
+          "named": true
+        },
+        {
+          "type": "quasi_quote",
+          "named": true
+        },
+        {
+          "type": "quasi_syntax",
+          "named": true
+        },
+        {
+          "type": "quote",
+          "named": true
+        },
+        {
+          "type": "syntax",
+          "named": true
+        },
+        {
+          "type": "unquote",
+          "named": true
+        },
+        {
+          "type": "unquote_splicing",
+          "named": true
+        },
+        {
+          "type": "unsyntax",
+          "named": true
+        },
+        {
+          "type": "unsyntax_splicing",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "special_initial",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "subsequent",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "digit",
+          "named": true
+        },
+        {
+          "type": "initial",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "whitespace",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "carriage_return",
+          "named": true
+        },
+        {
+          "type": "character_tabulation",
+          "named": true
+        },
+        {
+          "type": "form_feed",
+          "named": true
+        },
+        {
+          "type": "line_feed",
+          "named": true
+        },
+        {
+          "type": "line_separator",
+          "named": true
+        },
+        {
+          "type": "line_tabulation",
+          "named": true
+        },
+        {
+          "type": "next_line",
+          "named": true
+        },
+        {
+          "type": "paragraph_separator",
+          "named": true
+        },
+        {
+          "type": "space",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "!",
+    "named": false
+  },
+  {
+    "type": "#f",
+    "named": false
+  },
+  {
+    "type": "#false",
+    "named": false
+  },
+  {
+    "type": "#t",
+    "named": false
+  },
+  {
+    "type": "#true",
+    "named": false
+  },
+  {
+    "type": "$",
+    "named": false
+  },
+  {
+    "type": "%",
+    "named": false
+  },
+  {
+    "type": "&",
+    "named": false
+  },
+  {
+    "type": "*",
+    "named": false
+  },
+  {
+    "type": "/",
+    "named": false
+  },
+  {
+    "type": ":",
+    "named": false
+  },
+  {
+    "type": "<",
+    "named": false
+  },
+  {
+    "type": "=",
+    "named": false
+  },
+  {
+    "type": ">",
+    "named": false
+  },
+  {
+    "type": "?",
+    "named": false
+  },
+  {
+    "type": "^",
+    "named": false
+  },
+  {
+    "type": "_",
+    "named": false
+  },
+  {
+    "type": "carriage_return",
+    "named": true
+  },
+  {
+    "type": "character_tabulation",
+    "named": true
+  },
+  {
+    "type": "close_curly_paren",
+    "named": true
+  },
+  {
+    "type": "close_paren",
+    "named": true
+  },
+  {
+    "type": "close_square_paren",
+    "named": true
+  },
+  {
+    "type": "digit",
+    "named": true
+  },
+  {
+    "type": "dubble_quote",
+    "named": true
+  },
+  {
+    "type": "form_feed",
+    "named": true
+  },
+  {
+    "type": "hashtag",
+    "named": true
+  },
+  {
+    "type": "letter",
+    "named": true
+  },
+  {
+    "type": "line_feed",
+    "named": true
+  },
+  {
+    "type": "line_separator",
+    "named": true
+  },
+  {
+    "type": "line_tabulation",
+    "named": true
+  },
+  {
+    "type": "next_line",
+    "named": true
+  },
+  {
+    "type": "open_byte_vec_paren",
+    "named": true
+  },
+  {
+    "type": "open_curly_paren",
+    "named": true
+  },
+  {
+    "type": "open_paren",
+    "named": true
+  },
+  {
+    "type": "open_square_paren",
+    "named": true
+  },
+  {
+    "type": "open_vec_paren",
+    "named": true
+  },
+  {
+    "type": "paragraph_separator",
+    "named": true
+  },
+  {
+    "type": "period",
+    "named": true
+  },
+  {
+    "type": "quasi_quote",
+    "named": true
+  },
+  {
+    "type": "quasi_syntax",
+    "named": true
+  },
+  {
+    "type": "quote",
+    "named": true
+  },
+  {
+    "type": "semi_colon",
+    "named": true
+  },
+  {
+    "type": "space",
+    "named": true
+  },
+  {
+    "type": "syntax",
+    "named": true
+  },
+  {
+    "type": "unquote",
+    "named": true
+  },
+  {
+    "type": "unquote_splicing",
+    "named": true
+  },
+  {
+    "type": "unsyntax",
+    "named": true
+  },
+  {
+    "type": "unsyntax_splicing",
+    "named": true
+  },
+  {
+    "type": "~",
     "named": false
   }
 ]

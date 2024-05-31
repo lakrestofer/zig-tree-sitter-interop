@@ -2,14 +2,563 @@
   "name": "zig_tree_sitter_interop",
   "rules": {
     "source_file": {
-      "type": "STRING",
-      "value": "hello"
+      "type": "REPEAT",
+      "content": {
+        "type": "SYMBOL",
+        "name": "_lexeme"
+      }
+    },
+    "_lexeme": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "boolean"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "open_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "close_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "open_square_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "close_square_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "open_curly_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "close_curly_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "open_vec_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "open_byte_vec_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quote"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quasi_quote"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unquote"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unquote_splicing"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "period"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "syntax"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "quasi_syntax"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unsyntax"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "unsyntax_splicing"
+        }
+      ]
+    },
+    "delimiter": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "open_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "close_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "open_square_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "close_square_paren"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "dubble_quote"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "semi_colon"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "hashtag"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "whitespace"
+        }
+      ]
+    },
+    "whitespace": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "character_tabulation"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_feed"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_tabulation"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "form_feed"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "carriage_return"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "next_line"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "space"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_separator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_separator"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "paragraph_separator"
+        }
+      ]
+    },
+    "line_ending": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "line_feed"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "carriage_return"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "carriage_return"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "line_feed"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "line_separator"
+        }
+      ]
+    },
+    "identifier": {
+      "type": "REPEAT1",
+      "content": {
+        "type": "SYMBOL",
+        "name": "letter"
+      }
+    },
+    "initial": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "constituent"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "special_initial"
+        }
+      ]
+    },
+    "letter": {
+      "type": "PATTERN",
+      "value": "[a-zA-Z]"
+    },
+    "constituent": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "letter"
+        }
+      ]
+    },
+    "special_initial": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "!"
+        },
+        {
+          "type": "STRING",
+          "value": "$"
+        },
+        {
+          "type": "STRING",
+          "value": "%"
+        },
+        {
+          "type": "STRING",
+          "value": "&"
+        },
+        {
+          "type": "STRING",
+          "value": "*"
+        },
+        {
+          "type": "STRING",
+          "value": "/"
+        },
+        {
+          "type": "STRING",
+          "value": ":"
+        },
+        {
+          "type": "STRING",
+          "value": "<"
+        },
+        {
+          "type": "STRING",
+          "value": "="
+        },
+        {
+          "type": "STRING",
+          "value": ">"
+        },
+        {
+          "type": "STRING",
+          "value": "?"
+        },
+        {
+          "type": "STRING",
+          "value": "^"
+        },
+        {
+          "type": "STRING",
+          "value": "_"
+        },
+        {
+          "type": "STRING",
+          "value": "~"
+        }
+      ]
+    },
+    "subsequent": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "initial"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        }
+      ]
+    },
+    "digit": {
+      "type": "PATTERN",
+      "value": "[\\d]"
+    },
+    "hex_digit": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "digit"
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-fA-F]"
+        }
+      ]
+    },
+    "boolean": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "STRING",
+          "value": "#t"
+        },
+        {
+          "type": "STRING",
+          "value": "#f"
+        },
+        {
+          "type": "STRING",
+          "value": "#true"
+        },
+        {
+          "type": "STRING",
+          "value": "#false"
+        }
+      ]
+    },
+    "open_paren": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "("
+      }
+    },
+    "close_paren": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ")"
+      }
+    },
+    "open_square_paren": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "["
+      }
+    },
+    "close_square_paren": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "]"
+      }
+    },
+    "open_curly_paren": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "{"
+      }
+    },
+    "close_curly_paren": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "}"
+      }
+    },
+    "open_vec_paren": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "#("
+      }
+    },
+    "open_byte_vec_paren": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "#vu8("
+      }
+    },
+    "quote": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "'"
+      }
+    },
+    "quasi_quote": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "`"
+      }
+    },
+    "unquote": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ","
+      }
+    },
+    "unquote_splicing": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ",@"
+      }
+    },
+    "period": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "."
+      }
+    },
+    "syntax": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "#'"
+      }
+    },
+    "quasi_syntax": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "#`"
+      }
+    },
+    "unsyntax": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "#,"
+      }
+    },
+    "unsyntax_splicing": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "#,@"
+      }
+    },
+    "dubble_quote": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "\""
+      }
+    },
+    "semi_colon": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ";"
+      }
+    },
+    "hashtag": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "#"
+      }
+    },
+    "character_tabulation": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "\t"
+      }
+    },
+    "line_feed": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "\n"
+      }
+    },
+    "line_tabulation": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "\u000b"
+      }
+    },
+    "form_feed": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "\f"
+      }
+    },
+    "carriage_return": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": "\r"
+      }
+    },
+    "next_line": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": ""
+      }
+    },
+    "space": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": " "
+      }
+    },
+    "line_separator": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": " "
+      }
+    },
+    "paragraph_separator": {
+      "type": "TOKEN",
+      "content": {
+        "type": "STRING",
+        "value": " "
+      }
     }
   },
   "extras": [
     {
       "type": "PATTERN",
-      "value": "\\s"
+      "value": ";.*\\n"
+    },
+    {
+      "type": "PATTERN",
+      "value": "\\p{White_Space}",
+      "flags": "u"
     }
   ],
   "conflicts": [],
